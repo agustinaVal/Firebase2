@@ -1,5 +1,5 @@
 <template>
-	<div id="app">
+	<div id="app" class="container">
     <div
       class="modal fade"
       id="exampleModal"
@@ -26,6 +26,7 @@
       </div>
     </div>
 
+   <div class="form-agregar">
     <table>
       <tr>
         <td>Nombre</td>
@@ -35,8 +36,9 @@
         <td>Apellido</td>
         <td><input v-model="lastname" type="text" /></td>
       </tr>
-      <button @click="create">Agregar</button>
-    </table>
+    </table></div>
+          <b-button @click="create" variant="outline-danger" class="btn-form-agregar" >Agregar</b-button>
+
 
     <table class="table">
       <thead>
@@ -56,11 +58,11 @@
             <button
               data-toggle="modal"
               data-target="#exampleModal"
-              class="btn btn-warning"
+              class="btn btn-warning ml-2"
                @click="setInformation(user.data.name, user.data.lastname, user.id)"
             >
               Editar</button
-            ><button @click="Delete(user.id)" class="btn btn-danger">
+            ><button  @click="Delete(user.id)" class="btn btn-danger ml-2">
               Eliminar
             </button>
           </td>
@@ -74,6 +76,7 @@
 <script>
 import Login from '@/components/Login.vue'
 import firebase from 'firebase'
+
 
 export default {
   name: 'App',
@@ -161,18 +164,17 @@ export default {
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
 	color: #2c3e50;
-}
 
-#nav {
-	padding: 30px;
 }
+.form-agregar{
+  display: flex;
+  justify-content: center;
+  margin: 20px;
 
-#nav a {
-	font-weight: bold;
-	color: #2c3e50;
 }
-
-#nav a.router-link-exact-active {
-	color: #42b983;
+.btn-form-agregar{
+  display: flex;
+  justify-content: end;
+  margin-left: 60px; 
 }
 </style>
